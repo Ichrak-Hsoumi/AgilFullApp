@@ -1,0 +1,124 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header"> 
+                        <h2 class="card-title">Update Agent</h2>
+                        <a href="#" [routerLink]="['/agents']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a> 
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+  
+                            <div class="form-group">
+                                <label for="prenom">First Name:</label>
+                                <input 
+                                    formControlName="prenom"
+                                    id="prenom" 
+                                    type="text" 
+                                    [(ngModel)]="agent.prenom"
+                                    class="form-control">
+                                <div *ngIf="f.prenom.touched && f.prenom.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.prenom.errors.required">prenom is required.</div> -->
+                                </div>
+                            </div> 
+                             
+                            <div class="form-group">
+                                <label for="nom">Last Name</label>
+                                <input 
+                                    formControlName="nom"
+                                    id="nom" 
+                                    type="text" 
+                                    [(ngModel)]="agent.nom"
+                                    class="form-control">
+                                <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="numTel">Phone Number</label>
+                                <input
+                                    formControlName="numTel"
+                                    id="numTel" 
+                                    type="text" 
+                                    [(ngModel)]="agent.numTel"
+                                    class="form-control">
+                                <div *ngIf="f.numTel.touched && f.numTel.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateNaissance">Date of Birth</label>
+                                <input
+                                    formControlName="dateNaissance"
+                                    id="dateNaissance" 
+                                    type="text" 
+                                    [(ngModel)]="agent.dateNaissance"
+                                    class="form-control">
+                                <div *ngIf="f.dateNaissance.touched && f.dateNaissance.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input 
+                                    formControlName="address"
+                                    id="address" 
+                                    type="text" 
+                                    [(ngModel)]="agent.address"
+                                    class="form-control">
+                                <div *ngIf="f.address.touched && f.address.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input
+                                    formControlName="username"
+                                    id="username" 
+                                    type="text" 
+                                    [(ngModel)]="agent.username"
+                                    class="form-control">
+                                <div *ngIf="f.username.touched && f.username.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input 
+                                    formControlName="email"
+                                    id="email" 
+                                    type="text" 
+                                    [(ngModel)]="agent.email"
+                                    class="form-control">
+                                <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input 
+                                    formControlName="password"
+                                    id="password" 
+                                    type="text" 
+                                    [(ngModel)]="agent.password"
+                                    class="form-control">
+                                <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-success" type="submit" ><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

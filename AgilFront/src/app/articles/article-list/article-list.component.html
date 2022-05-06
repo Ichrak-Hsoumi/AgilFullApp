@@ -1,0 +1,64 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2 class="card-title">List of Articles</h2>
+                        <div> <a href="#" [routerLink]="['/addArticle']" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Article</a> </div> <br>
+                        <div class="form-group col-md-3"> 
+                            <input type="text" placeholder="Search.." class="form-control" [(ngModel)]="searchText"> 
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Title 
+                                    </th>
+                                    <th>
+                                        Content
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let article of articles | filter:searchText | paginate:{itemsPerPage:4, currentPage:p};">
+                                        <td>
+                                            {{ article.id }}
+                                        </td>
+                                        <td>
+                                            {{ article.title}}
+                                        </td>
+                                        <td>
+                                            {{ article.contenu }}
+                                        </td>
+                                        <td>
+                                            <a href="#" [routerLink]="['/article/', article.id, 'view']" class="btn btn-info"><i class="fa fa-external-link" aria-hidden="true"></i> View</a> |
+                                            <a href="#" [routerLink]="['/article/', article.id, 'edit']" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
+                                            <button type="button" (click)="deletePost(article.id)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="grey lighten-5 w-100 text-center">
+                                    <tr>
+                                      <td colspan="4">
+                                        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+                                      </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

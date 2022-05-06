@@ -1,0 +1,184 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Profile</h4>
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input 
+                                            formControlName="prenom"
+                                            id="prenom" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.prenom"
+                                            class="form-control"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input 
+                                            formControlName="nom"
+                                            id="nom" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.nom"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input 
+                                            formControlName="numTel"
+                                            id="numTel" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.numTel"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Date if Birth</label>
+                                        <input 
+                                            formControlName="dateNaissance"
+                                            id="dateNaissance" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.dateNaissance"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input 
+                                            formControlName="address"
+                                            id="address" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.address"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input 
+                                            formControlName="username"
+                                            id="username" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.username"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email address</label>
+                                        <input 
+                                            formControlName="email"
+                                            id="email" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.email"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input 
+                                            formControlName="password"
+                                            id="password" 
+                                            type="text" 
+                                            [(ngModel)]="currentUser.password"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-info btn-fill pull-right" (click)="showNotification('top','center')">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX25806751.jpg" alt="..."/> 
+                        <!-- <img src="https://s3.envato.com/files/241066597/preview.jpg" alt="..."/> -->
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                                <img class="avatar border-gray" src="assets/img/user.png" alt="..."/>
+
+                                <h4 class="title"><strong style="text-transform:uppercase">{{ currentUser.username }}</strong> Profile<br /> <br />
+                                </h4>
+                        </div>
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>First Name:</strong></p>{{ currentUser.prenom }}</h5>
+                        </div>
+  
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Last Name:</strong></p>{{ currentUser.nom }}</h5>
+                        </div>
+  
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Date of Birth:</strong></p>{{ currentUser.dateNaissance }}</h5>
+                        </div>
+  
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Phone Number:</strong></p>{{ currentUser.numTel }}</h5>
+                        </div>
+  
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Address:</strong></p>{{ currentUser.address }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Username:</strong></p>{{ currentUser.username }}</h5>
+                        </div>
+  
+                        <div class="typo-line">
+                              <h5><p class="category"><strong>Email:</strong></p>{{ currentUser.email }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Password:</strong></p>{{ currentUser.password.substring(0, 10) }}...{{ currentUser.password.substring(currentUser.password.length- 10) }}</h5>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- <div class="text-center">
+                        <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                        <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

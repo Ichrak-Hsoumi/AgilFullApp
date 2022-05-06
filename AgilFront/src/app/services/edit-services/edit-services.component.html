@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header"> 
+                        <h2 class="card-title">Update Service</h2>
+                        <a href="#" [routerLink]="['/services']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a> 
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+  
+                            <div class="form-group">
+                                <label for="nom">Name:</label>
+                                <input 
+                                    formControlName="nom"
+                                    id="nom" 
+                                    type="text" 
+                                    [(ngModel)]="service.nom"
+                                    class="form-control">
+                                <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.nom.errors.required">nom is required.</div> -->
+                                </div>
+                            </div> 
+                             
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <textarea 
+                                    formControlName="category"
+                                    id="category" 
+                                    type="text" 
+                                    [(ngModel)]="service.category"
+                                    class="form-control">
+                                </textarea>
+                                <div *ngIf="f.category.touched && f.category.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-success" type="submit" [disabled]="!form.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

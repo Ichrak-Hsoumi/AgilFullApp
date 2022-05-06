@@ -1,0 +1,21 @@
+
+<div class="wrapper"  *ngIf="isLoggedIn">
+    <div class="sidebar" data-color="orange">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background"></div>
+    </div>
+  
+    <div class="main-panel">
+        <navbar-cmp></navbar-cmp>
+        <router-outlet></router-outlet>
+        <footer>
+            <footer-cmp></footer-cmp>
+        </footer>
+    </div>
+  
+  </div>
+  
+  <div *ngIf="!isLoggedIn">
+      <router-outlet></router-outlet>
+  </div>
+  

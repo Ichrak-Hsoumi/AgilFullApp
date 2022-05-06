@@ -1,0 +1,33 @@
+
+<div class="sidebar-wrapper">
+    <div class="logo">
+        <a href="#" class="simple-text">
+            <div class="logo-img">
+                <img src="/assets/img/ag.jpg"/>
+            </div>
+            AGIL
+        </a>
+    </div>
+    <ul class="nav responsive-nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+            <a  [routerLink]="[menuItem.path]">
+                <i class="{{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
+        <li *ngIf="isMobileMenu()">
+            <a href="/maps" [routerLink]="['/maps']">
+                <i class="pe-7s-id" aria-hidden="true"></i> 
+                <p>Account</p>
+             </a>
+         </li>
+         
+         <li *ngIf="isMobileMenu()">
+             <a href class="nav-link" (click)="logout()"> 
+                <i class="pe-7s-back-2" aria-hidden="true"></i>
+                 <p>Log out</p>
+             </a>
+         </li>
+    </ul>
+</div>

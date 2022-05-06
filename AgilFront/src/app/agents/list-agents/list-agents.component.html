@@ -1,0 +1,76 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2 class="card-title">List of Agents</h2>
+                        <div> <a href="#" [routerLink]="['/addAgent']" class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Add New Agent</a> </div> <br>
+                        <div class="form-group col-md-3"> 
+                            <input type="text" placeholder="Search.." class="form-control" [(ngModel)]="searchText"> 
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        First Name 
+                                    </th>
+                                    <th>
+                                        Last Name
+                                    </th>
+                                    <th>
+                                        Username
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let agent of agents | filter:searchText | paginate:{itemsPerPage:4, currentPage:p};">
+                                        <td>
+                                            {{ agent.id }}
+                                        </td>
+                                        <td>
+                                            {{ agent.prenom}}
+                                        </td>
+                                        <td>
+                                            {{ agent.nom }}
+                                        </td>
+                                        <td>
+                                            {{ agent.username}}
+                                        </td>
+                                        <td>
+                                            {{ agent.email }}
+                                        </td>
+                                        <td>
+                                            <a href="#" [routerLink]="['/agent/', agent.id, 'view']" class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i> View</a> |
+                                            <a href="#" [routerLink]="['/agent/', agent.id, 'edit']" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
+                                            <button type="button" (click)="deletePost(agent.id)" class="btn btn-danger"><i class="fa fa-user-times" aria-hidden="true"></i> Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="grey lighten-5 w-100 text-center">
+                                    <tr>
+                                      <td colspan="6">
+                                        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+                                      </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

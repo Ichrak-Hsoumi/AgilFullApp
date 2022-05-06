@@ -1,0 +1,54 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header"> 
+                        <h2 class="card-title">View Agent</h2>
+                        <a href="#" [routerLink]="['/agents']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a> 
+                    </div>
+                    <div class="content">
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>ID:</strong></p>{{ agent.id }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>First Name:</strong></p>{{ agent.prenom }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Last Name:</strong></p>{{ agent.nom }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Date of Birth:</strong></p>{{ agent.dateNaissance }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Phone Number:</strong></p>{{ agent.numTel }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Last Address:</strong></p>{{ agent.address }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Username:</strong></p>{{ agent.username }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Email:</strong></p>{{ agent.email }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Password:</strong></p>{{ agent.password }}</h5>
+                        </div>
+                    
+                        <a href="#" [routerLink]="['/agent/', agent.id, 'edit']" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

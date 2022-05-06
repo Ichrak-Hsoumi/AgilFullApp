@@ -1,0 +1,30 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header"> 
+                        <h2 class="card-title">View Article</h2>
+                        <a href="#" [routerLink]="['/articles']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a> 
+                    </div>
+                    <div class="content">
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>ID:</strong></p>{{ article.id }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Title:</strong></p>{{ article.title }}</h5>
+                        </div>
+
+                        <div class="typo-line">
+                            <h5><p class="category"><strong>Contenu:</strong></p>{{ article.contenu }}</h5>
+                        </div>
+                    
+                        <a href="#" [routerLink]="['/article/', article.id, 'edit']" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
