@@ -18,17 +18,28 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
 ];
 
+export const ROUTESAgent: RouteInfo[] = [
+  { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
+  { path: '/notifications', title: 'FeedBacks',  icon:'pe-7s-comment', class: '' },
+  { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
+];
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
+
+  currentUser: any;
   menuItems: any[];
+  menuItemsAgent: any[];
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
+    this.currentUser = this.tokenStorageService.getUser();
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItemsAgent = ROUTESAgent.filter(menuItemsAgent => menuItemsAgent);
   }
   isMobileMenu() {
       if ($(window).width() > 991) {

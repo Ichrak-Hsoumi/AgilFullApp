@@ -8,11 +8,36 @@
             AGIL
         </a>
     </div>
-    <ul class="nav responsive-nav">
+    <!-- If Admin -->
+    <ul class="nav responsive-nav" *ngIf="currentUser.username=='admin'">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a  [routerLink]="[menuItem.path]">
                 <i class="{{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
+        <li *ngIf="isMobileMenu()">
+            <a href="/maps" [routerLink]="['/maps']">
+                <i class="pe-7s-id" aria-hidden="true"></i> 
+                <p>Account</p>
+             </a>
+         </li>
+         
+         <li *ngIf="isMobileMenu()">
+             <a href class="nav-link" (click)="logout()"> 
+                <i class="pe-7s-back-2" aria-hidden="true"></i>
+                 <p>Log out</p>
+             </a>
+         </li>
+    </ul>
+
+    <!-- If Agent -->
+    <ul class="nav responsive-nav" *ngIf="currentUser.username!='admin'">
+        <li routerLinkActive="active" *ngFor="let menuItemAgent of menuItemsAgent" class="{{menuItemAgent.class}}">
+            <a  [routerLink]="[menuItemAgent.path]">
+                <i class="{{menuItemAgent.icon}}"></i>
+                <p>{{menuItemAgent.title}}</p>
             </a>
         </li>
         <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
