@@ -1,3 +1,7 @@
+import { EditGuichetComponent } from './../../icons/edit-guichet/edit-guichet.component';
+import { AddGuichetComponent } from './../../icons/add-guichet/add-guichet.component';
+import { ViewGuichetComponent } from './../../icons/view-guichet/view-guichet.component';
+import { ListGuichetComponent } from './../../icons/list-guichet/list-guichet.component';
 import { EditServicesComponent } from './../../services/edit-services/edit-services.component';
 import { AddServicesComponent } from './../../services/add-services/add-services.component';
 import { ViewServicesComponent } from './../../services/view-services/view-services.component';
@@ -12,7 +16,6 @@ import { HomeComponent } from '../../home/home.component';
 import { RegisterComponent } from '../../register/register.component';
 import { LoginComponent } from '../../login/login.component';
 import { UserComponent } from '../../user/user.component';
-import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { ArticleListComponent } from '../../articles/article-list/article-list.component';
@@ -41,7 +44,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'addService', component: AddServicesComponent },
     { path: 'service/:serviceId/edit', component: EditServicesComponent },
 
-    { path: 'icons',          component: IconsComponent },
+    { path: 'guichets',          component: ListGuichetComponent },
+    { path: 'guichet/:guichetId/view', component: ViewGuichetComponent },
+    { path: 'addGuichet', component: AddGuichetComponent },
+    { path: 'guichet/:guichetId/edit', component: EditGuichetComponent },
+
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
 ];

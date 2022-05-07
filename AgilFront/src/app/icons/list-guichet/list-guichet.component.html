@@ -1,10 +1,12 @@
-<div class="main-content" >
+<div class="main-content">
     <div class="container-fluid">
         <div class="row">
+            
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h2 class="card-title">List of Feedbacks</h2> <br>
+                        <h2 class="card-title">List of Windows</h2>
+                        <div> <a href="#" [routerLink]="['/addGuichet']" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Window</a> </div> <br>
                         <div class="form-group col-md-3"> 
                             <input type="text" placeholder="Search.." class="form-control" [(ngModel)]="searchText"> 
                         </div>
@@ -17,22 +19,36 @@
                                         ID
                                     </th>
                                     <th>
-                                        Date 
+                                        Window Number 
                                     </th>
                                     <th>
-                                        Content
+                                        Opening Time
+                                    </th>
+                                    <th>
+                                        Closing Time
+                                    </th>
+                                    <th>
+                                        Action
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let feedBack of feedBacks | filter:searchText | paginate:{itemsPerPage:4, currentPage:p};">
+                                    <tr *ngFor="let guichet of guichets | filter:searchText | paginate:{itemsPerPage:4, currentPage:p};">
                                         <td>
-                                            {{ feedBack.id }}
+                                            {{ guichet.id }}
                                         </td>
                                         <td>
-                                            {{ feedBack.date}}
+                                            {{ guichet.Number}}
                                         </td>
                                         <td>
-                                            {{ feedBack.content }}
+                                            {{ guichet.open }}
+                                        </td>
+                                        <td>
+                                            {{ guichet.close }}
+                                        </td>
+                                        <td>
+                                            <a href="#" [routerLink]="['/guichet/', guichet.id, 'view']" class="btn btn-info"><i class="fa fa-external-link" aria-hidden="true"></i> View</a> |
+                                            <a href="#" [routerLink]="['/guichet/', guichet.id, 'edit']" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
+                                            <button type="button" (click)="deletePost(guichet.id)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -50,4 +66,5 @@
             </div>
         </div>
     </div>
-</div>
+  </div>
+  

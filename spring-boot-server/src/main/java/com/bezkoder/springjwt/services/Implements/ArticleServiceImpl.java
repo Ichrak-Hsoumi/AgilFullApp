@@ -3,7 +3,6 @@ package com.bezkoder.springjwt.services.Implements;
 import com.bezkoder.springjwt.models.Article;
 import com.bezkoder.springjwt.models.User;
 import com.bezkoder.springjwt.repository.ArticleRepository;
-import com.bezkoder.springjwt.repository.UserRepository;
 import com.bezkoder.springjwt.services.ArticleService;
 import com.bezkoder.springjwt.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

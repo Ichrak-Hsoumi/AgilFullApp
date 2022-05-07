@@ -12,7 +12,6 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 
 import { HomeComponent } from '../../home/home.component';
 import { UserComponent } from '../../user/user.component';
-import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 
@@ -30,7 +29,6 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
   declarations: [
     HomeComponent,
     UserComponent,
-    IconsComponent,
     MapsComponent,
     NotificationsComponent
   ]

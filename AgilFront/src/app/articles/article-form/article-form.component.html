@@ -18,7 +18,7 @@
                                     type="text" 
                                     class="form-control">
                                 <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
-                                    <!-- <div *ngIf="f.title.errors.required">Title is required.</div> -->
+                                    <div *ngIf="f.title.errors.required">Title is required.</div>
                                 </div>
                             </div>
                       
@@ -31,6 +31,7 @@
                                     class="form-control">
                                 </textarea>
                                 <div *ngIf="f.contenu.touched && f.contenu.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.contenu.errors.required">Content is required.</div>
                                 </div>
                             </div>
                       

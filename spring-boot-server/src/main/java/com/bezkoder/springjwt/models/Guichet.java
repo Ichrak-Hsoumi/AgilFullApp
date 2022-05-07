@@ -1,5 +1,6 @@
 package com.bezkoder.springjwt.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,15 +20,18 @@ public class Guichet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    private int number;
+
+    @JsonFormat(pattern="HH:mm")
     private Date open;
 
-    @NotBlank
+    @JsonFormat(pattern="HH:mm")
     private Date close;
 
     //Agent
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "agent_id", referencedColumnName = "id")
+    @JsonIgnore
     private User agent;
 
     @OneToMany(mappedBy ="guichet", cascade = CascadeType.ALL)

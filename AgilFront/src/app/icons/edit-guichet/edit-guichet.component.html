@@ -1,0 +1,61 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header"> 
+                        <h2 class="card-title">Update Guichet</h2>
+                        <a href="#" [routerLink]="['/guichets']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a> 
+                    </div>
+                    <div class="content">
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+  
+                            <div class="form-group">
+                                <label for="number">Window Number:</label>
+                                <input 
+                                    formControlName="number"
+                                    id="number" 
+                                    type="text" 
+                                    [(ngModel)]="guichet.number"
+                                    class="form-control">
+                                <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.number.errors.required">number is required.</div> -->
+                                </div>
+                            </div> 
+                             
+                            <div class="form-group">
+                                <label for="open">Openning Time</label>
+                                <textarea 
+                                    formControlName="open"
+                                    id="open" 
+                                    type="text" 
+                                    [(ngModel)]="guichet.open"
+                                    class="form-control">
+                                </textarea>
+                                <div *ngIf="f.open.touched && f.open.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="close">Closing Time</label>
+                                <textarea 
+                                    formControlName="close"
+                                    id="close" 
+                                    type="text" 
+                                    [(ngModel)]="guichet.close"
+                                    class="form-control">
+                                </textarea>
+                                <div *ngIf="f.close.touched && f.close.invalid" class="alert alert-danger">
+                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-success" type="submit" [disabled]="!form.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

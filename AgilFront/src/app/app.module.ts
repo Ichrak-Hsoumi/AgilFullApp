@@ -31,6 +31,10 @@ import { ListServicesComponent } from './services/list-services/list-services.co
 import { AddServicesComponent } from './services/add-services/add-services.component';
 import { EditServicesComponent } from './services/edit-services/edit-services.component';
 import { ViewServicesComponent } from './services/view-services/view-services.component';
+import { AddGuichetComponent } from './icons/add-guichet/add-guichet.component';
+import { EditGuichetComponent } from './icons/edit-guichet/edit-guichet.component';
+import { ViewGuichetComponent } from './icons/view-guichet/view-guichet.component';
+import { ListGuichetComponent } from './icons/list-guichet/list-guichet.component';
 
 @NgModule({
   imports: [
@@ -63,7 +67,11 @@ import { ViewServicesComponent } from './services/view-services/view-services.co
     ListServicesComponent,
     AddServicesComponent,
     EditServicesComponent,
-    ViewServicesComponent
+    ViewServicesComponent,
+    AddGuichetComponent,
+    EditGuichetComponent,
+    ViewGuichetComponent,
+    ListGuichetComponent
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
