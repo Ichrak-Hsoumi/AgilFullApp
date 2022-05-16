@@ -30,6 +30,11 @@ public class ArticleController {
                         .build());
     }
 
+    @GetMapping(path="/sorted")
+    public List<Article> findAllSorted()  {
+        return articleService.findAll();
+    }
+
     @PostMapping
     public void createArticle(@RequestBody Article article) {
 

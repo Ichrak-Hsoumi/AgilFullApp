@@ -6,6 +6,7 @@ import com.bezkoder.springjwt.repository.ArticleRepository;
 import com.bezkoder.springjwt.services.ArticleService;
 import com.bezkoder.springjwt.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,6 +42,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<Article> getAll() {
         return articleRepository.findAll();
+    }
+
+    @Override
+    public List<Article> findAll() {
+        return articleRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override

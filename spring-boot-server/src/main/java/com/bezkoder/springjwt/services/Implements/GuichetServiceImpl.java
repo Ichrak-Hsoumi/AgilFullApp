@@ -5,6 +5,7 @@ import com.bezkoder.springjwt.models.Services;
 import com.bezkoder.springjwt.repository.GuichetRepository;
 import com.bezkoder.springjwt.services.GuichetService;
 import com.bezkoder.springjwt.services.ServicesService;
+import com.bezkoder.springjwt.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,9 @@ public class GuichetServiceImpl implements GuichetService {
     @Autowired
     private ServicesService servicesService;
 
+    @Autowired
+    private UserService userService;
+
     /*@Autowired
     private EcranService ecranService;*/
 
@@ -30,10 +34,10 @@ public class GuichetServiceImpl implements GuichetService {
         guichet1.setOpen(guichet.getOpen());
         guichet1.setClose(guichet.getClose());
 
-        if (guichet.getService()!=null){
-            Services services = servicesService.findById(guichet.getService().getId());
-            guichet1.setService(services);
-        }
+        /*if(guichet.getService() != null) {
+            Services service = servicesService.findById(guichet.getService().getId());
+            guichet1.setService(service);
+        }*/
         guichetRepository.save(guichet1);
 
     }

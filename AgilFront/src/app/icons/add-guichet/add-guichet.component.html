@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="header"> 
                         <h2 class="card-title">Create New Window</h2>
-                        <a href="#" [routerLink]="['/ghuichets']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a>
+                        <a href="#" [routerLink]="['/guichets']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a>
                     </div>
                     <div class="content">
                         <form [formGroup]="form" (ngSubmit)="submit()">
@@ -45,6 +45,13 @@
                                     <div *ngIf="f.close.errors.required">Closing Time is required.</div>
                                 </div>
                             </div>
+
+                            <!-- <div class="form-group">
+                                <label for="service">service:</label>
+                                <select formControlName="service" id="service" class="form-control">
+                                    <option *ngFor="let s of services" [value]="s.id">{{ s.id }}</option>
+                                  </select>
+                            </div> -->
                       
                             <button class="btn btn-primary" type="submit" [disabled]="!form.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Submit</button>
                         </form>

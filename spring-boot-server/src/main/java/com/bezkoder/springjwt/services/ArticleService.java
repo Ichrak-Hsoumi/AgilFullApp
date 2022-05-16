@@ -8,6 +8,7 @@ public interface ArticleService {
     void createArticle(Article article);
     Article findById(Long id);
     List<Article> getAll();
+    List<Article> findAll();
     void updateArticle(Long id, Article article);
     public void delete(Long id);
 }

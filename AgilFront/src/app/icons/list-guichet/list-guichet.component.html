@@ -28,6 +28,12 @@
                                         Closing Time
                                     </th>
                                     <th>
+                                        Agent Id
+                                    </th>
+                                    <th>
+                                        Service Id
+                                    </th>
+                                    <th>
                                         Action
                                     </th>
                                 </thead>
@@ -46,6 +52,12 @@
                                             {{ guichet.close }}
                                         </td>
                                         <td>
+                                            {{ guichet.number}} <!-- {{ guichet.agent.id }} -->
+                                        </td>
+                                        <td>
+                                            {{ guichet.service.id }}
+                                        </td>
+                                        <td>
                                             <a href="#" [routerLink]="['/guichet/', guichet.id, 'view']" class="btn btn-info"><i class="fa fa-external-link" aria-hidden="true"></i> View</a> |
                                             <a href="#" [routerLink]="['/guichet/', guichet.id, 'edit']" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
                                             <button type="button" (click)="deletePost(guichet.id)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
@@ -54,7 +66,7 @@
                                 </tbody>
                                 <tfoot class="grey lighten-5 w-100 text-center">
                                     <tr>
-                                      <td colspan="4">
+                                      <td colspan="7">
                                         <pagination-controls (pageChange)="p=$event"></pagination-controls>
                                       </td>
                                     </tr>
