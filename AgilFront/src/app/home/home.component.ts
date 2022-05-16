@@ -1,3 +1,4 @@
+import { AgentService } from 'app/_services/agent.service';
 import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
@@ -24,9 +25,14 @@ export class HomeComponent implements OnInit {
     public activityChartOptions: any;
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
-  constructor() { }
+  constructor(public agentservice: AgentService) { }
 
   ngOnInit() {
+    this.agentservice.currentUser().subscribe(res => {
+      console.log('Current U ser!', res);
+      /* this.router.navigateByUrl('user'); */
+ })
+    
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
         labels: ['52%', '32%', '16%'],

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -23,10 +24,10 @@ public class Guichet {
     private int number;
 
     @JsonFormat(pattern="HH:mm")
-    private Date open;
+    private LocalTime open;
 
     @JsonFormat(pattern="HH:mm")
-    private Date close;
+    private LocalTime close;
 
     //Agent
     @OneToOne(cascade = CascadeType.ALL)

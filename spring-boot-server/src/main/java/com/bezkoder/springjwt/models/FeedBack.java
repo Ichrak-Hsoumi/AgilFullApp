@@ -27,6 +27,7 @@ public class FeedBack {
     @NotBlank
     private String content;
 
+
     @ManyToOne
     @JoinColumn(name = "Id_Client")
     private User client;

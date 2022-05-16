@@ -26,11 +26,9 @@ public class ArticleServiceImpl implements ArticleService {
         article1.setTitle(article.getTitle());
         article1.setContenu(article.getContenu());
 
-        if (article.getAdmin()!=null){
-            User admin = userService.findById(article.getAdmin().getId());
-            //User admin = userRepository.getOne(article.getAdmin());
-            article1.setAdmin(admin);
-        }
+        User creator = userService.currentUser();
+        article1.setAdmin(creator);
+
         articleRepository.save(article1);
 
     }

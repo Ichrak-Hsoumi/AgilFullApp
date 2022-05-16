@@ -21,7 +21,7 @@ export const ROUTES: RouteInfo[] = [
 export const ROUTESAgent: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
   { path: '/notifications', title: 'FeedBacks',  icon:'pe-7s-comment', class: '' },
-  { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
+  { path: '/notifications', title: 'Queue',  icon:'pe-7s-more', class: '' },
 ];
 
 @Component({

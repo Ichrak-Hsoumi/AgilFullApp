@@ -22,6 +22,9 @@
                                     <th>
                                         Content
                                     </th>
+                                    <th>
+                                        Client Id
+                                    </th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let feedBack of feedBacks | filter:searchText | paginate:{itemsPerPage:4, currentPage:p};">
@@ -33,6 +36,9 @@
                                         </td>
                                         <td>
                                             {{ feedBack.content }}
+                                        </td>
+                                        <td>
+                                            {{ feedBack.client.id }}
                                         </td>
                                     </tr>
                                 </tbody>

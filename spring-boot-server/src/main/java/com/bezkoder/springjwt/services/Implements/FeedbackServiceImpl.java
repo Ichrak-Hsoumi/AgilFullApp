@@ -32,10 +32,9 @@ public class FeedbackServiceImpl implements FeedbackService {
 
         feedBack1.setContent(feedBack.getContent());
 
-        if (feedBack.getClient()!=null){
-            User client = userService.findById(feedBack.getClient().getId());
-            feedBack1.setClient(client);
-        }
+        User creator = userService.currentUser();
+        feedBack1.setClient(creator);
+
         feedbackRepository.save(feedBack1);
 
     }

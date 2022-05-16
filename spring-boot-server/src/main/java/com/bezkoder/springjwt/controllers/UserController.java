@@ -49,4 +49,11 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userService.delete(id);
     }
+
+    @GetMapping(path="/current")
+    public User currentUser() {
+        System.out.println("\n \n I m hereeeeeeeee*****");
+        User user = userService.currentUser();
+        return user;
+    }
 }
