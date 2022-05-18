@@ -5,6 +5,8 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Guichet } from 'app/model/guichetModel';
 import { Services } from 'app/model/servicesModel';
 import { ServService } from 'app/_services/serv.service';
+import { AgentService } from 'app/_services/agent.service';
+import { User } from 'app/model/userModel';
 
 @Component({
   selector: 'app-add-guichet',
@@ -15,21 +17,30 @@ export class AddGuichetComponent implements OnInit {
 
   form!: FormGroup;
   services: Services[] = [];
+  agents: User[] = [];
 
   constructor(public guichetService: GuichetService,
     private router: Router,
-    public serv: ServService) { }
+    public serv: ServService,
+    public agentService: AgentService) { }
 
     ngOnInit(): void {
       this.serv.list().subscribe((data: Services[])=>{
         this.services = data;
         console.log(this.services);
       })  
+
+      this.agentService.list().subscribe((data: User[])=>{
+        this.agents = data;
+        console.log(this.agents);
+      }) 
+
       this.form = new FormGroup({
         number: new FormControl('', [Validators.required]),
         open: new FormControl('', [Validators.required]),
-        close: new FormControl('', Validators.required)
-        /* service: new FormControl('', Validators.required) */
+        close: new FormControl('', [Validators.required]),
+        service: new FormControl('', [Validators.required]), 
+        agent: new FormControl('', [Validators.required])
       });
     }
      

@@ -96,10 +96,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User currentUser() {
 
-        System.out.println("\n \n ------authentication().getName()----" + authentication().getName());
+        //System.out.println("\n \n ------authentication().getName()----" + authentication().getName());
         User user = userRepository.findByUsername(authentication().getName())
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + authentication().getName()));
-        System.out.println("\n \n ------Current User----" + user.getId());
+        //System.out.println("\n \n ------Current User----" + user.getId());
         return user;
     }
 }

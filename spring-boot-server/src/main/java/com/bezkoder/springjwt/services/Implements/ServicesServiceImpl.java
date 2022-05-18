@@ -34,8 +34,6 @@ public class ServicesServiceImpl implements ServicesService {
 
         service1.setNom(service.getNom());
         service1.setCategory(service.getCategory());
-        service1.setGuichets(service.getGuichets());
-        service1.setClients(service.getClients());
         serviceRepository.save(service1);
     }
 
@@ -44,8 +42,6 @@ public class ServicesServiceImpl implements ServicesService {
         Services service1 = serviceRepository.findById(id).isPresent() ? serviceRepository.findById(id).get() : null ;
         service1.setNom(service.getNom());
         service1.setCategory(service.getCategory());
-        service1.setGuichets(service.getGuichets());
-        service1.setClients(service.getClients());
         serviceRepository.save(service1);
     }
 

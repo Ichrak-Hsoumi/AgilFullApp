@@ -3,5 +3,6 @@ export class Guichet {
     number?:number;
     open?: Date;
     close?: Date;
-    /* service?: number; */
+    service?: any;
+    agent?: any;
   }

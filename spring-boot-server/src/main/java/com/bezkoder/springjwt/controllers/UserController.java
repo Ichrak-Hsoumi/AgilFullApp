@@ -52,7 +52,7 @@ public class UserController {
 
     @GetMapping(path="/current")
     public User currentUser() {
-        System.out.println("\n \n I m hereeeeeeeee*****");
+        //System.out.println("\n \n I m hereeeeeeeee*****");
         User user = userService.currentUser();
         return user;
     }

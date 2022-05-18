@@ -30,7 +30,7 @@ public class Guichet {
     private LocalTime close;
 
     //Agent
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "agent_id", referencedColumnName = "id")
     @JsonIgnore
     private User agent;
@@ -40,6 +40,7 @@ public class Guichet {
     private List<Ticket> tickets;
 
     @ManyToOne
+    /*@JoinColumn(name = "Id_Service", referencedColumnName = "id")*/
     @JoinColumn(name = "Id_Service")
     private Services service;
 

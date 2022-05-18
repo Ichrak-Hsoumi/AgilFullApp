@@ -34,4 +34,8 @@ public class Services {
 
     @ManyToMany(mappedBy = "services")
     private Set<User> clients;
+
+    public Services(@NotBlank @Size(max = 20) String nom) {
+        this.nom = nom;
+    }
 }

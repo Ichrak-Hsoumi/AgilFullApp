@@ -2,11 +2,15 @@ package com.bezkoder.springjwt.services.Implements;
 
 import com.bezkoder.springjwt.models.Guichet;
 import com.bezkoder.springjwt.models.Services;
+import com.bezkoder.springjwt.models.User;
 import com.bezkoder.springjwt.repository.GuichetRepository;
+import com.bezkoder.springjwt.repository.ServiceRepository;
+import com.bezkoder.springjwt.repository.UserRepository;
 import com.bezkoder.springjwt.services.GuichetService;
 import com.bezkoder.springjwt.services.ServicesService;
 import com.bezkoder.springjwt.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +22,10 @@ public class GuichetServiceImpl implements GuichetService {
     private GuichetRepository guichetRepository;
 
     @Autowired
-    private ServicesService servicesService;
+    private ServiceRepository serviceRepository;
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
     /*@Autowired
     private EcranService ecranService;*/
@@ -34,10 +38,16 @@ public class GuichetServiceImpl implements GuichetService {
         guichet1.setOpen(guichet.getOpen());
         guichet1.setClose(guichet.getClose());
 
-        /*if(guichet.getService() != null) {
-            Services service = servicesService.findById(guichet.getService().getId());
+        if(guichet.getService() != null) {
+            Services service = serviceRepository.findByNom(guichet.getService().getNom());
             guichet1.setService(service);
-        }*/
+        }
+
+        if(guichet.getAgent() != null) {
+            User agent = userRepository.findByUsername(guichet.getAgent().getUsername())
+                    .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + guichet.getAgent().getUsername()));
+            guichet1.setAgent(agent);
+        }
         guichetRepository.save(guichet1);
 
     }
