@@ -31,8 +31,9 @@ public class Guichet {
 
     //Agent
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "agent_id", referencedColumnName = "id")
-    @JsonIgnore
+    /*@JoinColumn(name = "agent_id", referencedColumnName = "id")
+    @JsonIgnore*/
+    @JoinColumn(name = "agent_id")
     private User agent;
 
     @OneToMany(mappedBy ="guichet", cascade = CascadeType.ALL)

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EcranRepository extends JpaRepository<Ecran, Long> {
+    Ecran findByName(String name);
 }

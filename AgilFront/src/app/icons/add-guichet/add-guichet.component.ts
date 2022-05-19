@@ -18,6 +18,7 @@ export class AddGuichetComponent implements OnInit {
   form!: FormGroup;
   services: Services[] = [];
   agents: User[] = [];
+  guichets: Guichet[] = [];
 
   constructor(public guichetService: GuichetService,
     private router: Router,
@@ -29,6 +30,11 @@ export class AddGuichetComponent implements OnInit {
         this.services = data;
         console.log(this.services);
       })  
+
+      this.guichetService.list().subscribe((data: Guichet[])=>{
+        this.guichets = data;
+        console.log(this.guichets);
+      }) 
 
       this.agentService.list().subscribe((data: User[])=>{
         this.agents = data;

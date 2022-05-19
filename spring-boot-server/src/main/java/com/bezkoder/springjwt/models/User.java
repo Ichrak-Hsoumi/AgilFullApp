@@ -90,8 +90,8 @@ public class User {
 	private List<Article> articles;
 
 	//Agent
-	@OneToOne(mappedBy = "agent")
-	private Guichet guichet;
+	/*@OneToOne(mappedBy = "agent")
+	private Guichet guichet;*/
 
 	public User(String username, String email, String nom, String prenom, Date dateNaissance,String numTel, String address, String password) {
 		this.username = username;
@@ -104,4 +104,11 @@ public class User {
 		this.password = password;
 	}
 
+	/*public User(@NotBlank @Size(max = 50) @Email String email) {
+		this.email = email;
+	}*/
+
+	public User(@NotBlank @Size(max = 20) String username) {
+		this.username = username;
+	}
 }

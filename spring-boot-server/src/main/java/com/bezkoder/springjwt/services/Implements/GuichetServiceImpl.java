@@ -1,8 +1,10 @@
 package com.bezkoder.springjwt.services.Implements;
 
+import com.bezkoder.springjwt.models.Ecran;
 import com.bezkoder.springjwt.models.Guichet;
 import com.bezkoder.springjwt.models.Services;
 import com.bezkoder.springjwt.models.User;
+import com.bezkoder.springjwt.repository.EcranRepository;
 import com.bezkoder.springjwt.repository.GuichetRepository;
 import com.bezkoder.springjwt.repository.ServiceRepository;
 import com.bezkoder.springjwt.repository.UserRepository;
@@ -14,6 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GuichetServiceImpl implements GuichetService {
@@ -27,8 +30,8 @@ public class GuichetServiceImpl implements GuichetService {
     @Autowired
     private UserRepository userRepository;
 
-    /*@Autowired
-    private EcranService ecranService;*/
+    @Autowired
+    private EcranRepository ecranRepository;
 
     @Override
     public void createGuichet(Guichet guichet) {
@@ -48,6 +51,12 @@ public class GuichetServiceImpl implements GuichetService {
                     .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + guichet.getAgent().getUsername()));
             guichet1.setAgent(agent);
         }
+
+
+        /*Ecran ecran = ecranRepository.findByName("E1");
+        guichet1.setEcran(ecran);*/
+
+
         guichetRepository.save(guichet1);
 
     }
@@ -68,6 +77,18 @@ public class GuichetServiceImpl implements GuichetService {
         guichet1.setNumber(guichet.getNumber());
         guichet1.setOpen(guichet.getOpen());
         guichet1.setClose(guichet.getClose());
+
+        if(guichet.getService() != null) {
+            Services service = serviceRepository.findByNom(guichet.getService().getNom());
+            guichet1.setService(service);
+        }
+
+        if(guichet.getAgent() != null) {
+            User agent = userRepository.findByUsername(guichet.getAgent().getUsername())
+                    .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + guichet.getAgent().getUsername()));
+            guichet1.setAgent(agent);
+        }
+
         guichetRepository.save(guichet1);
     }
 

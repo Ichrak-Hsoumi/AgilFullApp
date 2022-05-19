@@ -5,4 +5,5 @@ export class Guichet {
     close?: Date;
     service?: any;
     agent?: any;
+    ecran?: any;
   }

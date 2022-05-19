@@ -19,36 +19,48 @@
                                     [(ngModel)]="guichet.number"
                                     class="form-control">
                                 <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
-                                    <!-- <div *ngIf="f.number.errors.required">number is required.</div> -->
+                                    <div *ngIf="f.number.errors.required">Number is required.</div>
                                 </div>
                             </div> 
                              
                             <div class="form-group">
                                 <label for="open">Openning Time</label>
-                                <textarea 
+                                <input 
                                     formControlName="open"
                                     id="open" 
-                                    type="text" 
+                                    type="time" 
                                     [(ngModel)]="guichet.open"
                                     class="form-control">
-                                </textarea>
                                 <div *ngIf="f.open.touched && f.open.invalid" class="alert alert-danger">
-                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                    <div *ngIf="f.open.errors.required">Openning Time is required.</div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="close">Closing Time</label>
-                                <textarea 
+                                <input 
                                     formControlName="close"
                                     id="close" 
-                                    type="text" 
+                                    type="time" 
                                     [(ngModel)]="guichet.close"
                                     class="form-control">
-                                </textarea>
                                 <div *ngIf="f.close.touched && f.close.invalid" class="alert alert-danger">
-                                    <!-- <div *ngIf="f.body.errors.required">Body is required.</div> -->
+                                    <div *ngIf="f.close.errors.required">Closing Time is required.</div>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">Service:</label>
+                                <select formControlName="service" id="service" [(ngModel)]="guichet.service.nom" class="form-control">
+                                    <option *ngFor="let s of services" [value]="s.nom">{{ s.nom }}</option>
+                                  </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="agent">Agent:</label>
+                                <select formControlName="agent" id="agent" [(ngModel)]="guichet.agent.username" class="form-control">
+                                    <option *ngFor="let a of agents" [value]="a.username">{{ a.username }}</option>
+                                  </select>
                             </div>
                             
                             <button class="btn btn-success" type="submit" [disabled]="!form.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>

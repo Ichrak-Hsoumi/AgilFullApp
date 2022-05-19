@@ -19,9 +19,16 @@ public class Ecran {
     private Long id;
 
     @NotBlank
+    private String name;
+
+    @NotBlank
     private String message;
 
     @OneToMany(mappedBy ="ecran", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Guichet> guichets;
+
+    public Ecran(@NotBlank String name) {
+        this.name = name;
+    }
 }

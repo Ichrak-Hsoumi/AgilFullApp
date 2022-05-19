@@ -49,14 +49,15 @@
                             <div class="form-group">
                                 <label for="service">Service:</label>
                                 <select formControlName="service" id="service" class="form-control">
-                                    <option *ngFor="let s of services" [value]="s.nom">{{ s.nom }}</option>
+                                    <option *ngFor="let s of services; let i = index" [selected]="i == 0">{{ s.nom }}</option>
                                   </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="agent">Agent:</label>
                                 <select formControlName="agent" id="agent" class="form-control">
-                                    <option *ngFor="let a of agents" [value]="a.username">{{ a.username }}</option>
+                                    <option *ngFor="let a of agents; let i = index" [selected]="i == 0">{{ a.username }}</option>
+                                    <!-- <option *ngFor="let a of agents" [value]="a.username" [selected]="a.username">{{ a.username }}</option> -->
                                   </select>
                             </div>
                             <!-- <div class="form-group">
