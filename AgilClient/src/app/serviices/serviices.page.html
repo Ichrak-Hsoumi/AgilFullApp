@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Services</ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  <p class="ion-margin-start"><strong>List of services: </strong></p>
+
+  <ion-list>
+    <ion-item [routerLink]="['../details-service', s.id]" *ngFor="let s of services | filter:searchText">
+
+      <ion-avatar *ngFor="let i of img" class="ion-margin-horizontal">
+        <ion-img [src]="i"></ion-img>
+      </ion-avatar>
+
+      <ion-label>{{ s.nom }} </ion-label>
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

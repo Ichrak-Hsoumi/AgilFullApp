@@ -1,0 +1,36 @@
+/* ion-split-pane{ 
+    --border: none !important;
+    --background: var(--ion-color-warning) !important; 
+    ion-menu{
+        ion-header{
+            ion-toolbar{
+                --background: var(--ion-color-warning) !important;
+            }
+            --background: var(--ion-color-warning) !important; 
+        } 
+     --background: var(--ion-color-warning) !important; 
+        ion-content{            
+            --background: var(--ion-color-warning) !important; 
+            ion-list-header{ 
+                --background: var(--ion-color-warning) !important;
+                --color: #000000 !important;   
+            }
+            ion-item{
+                --background: var(--ion-color-warning) !important;
+                 --color: #000000 !important;
+            }
+        }
+    }
+}
+
+ion-footer{            
+    --background: var(--ion-color-warning) !important; 
+    ion-list-header{ 
+        --background: var(--ion-color-warning) !important;
+        --color: #000000 !important;   
+    }
+    ion-item{
+        --background: var(--ion-color-warning) !important;
+         --color: #000000 !important;
+    }
+} */

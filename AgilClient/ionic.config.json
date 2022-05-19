@@ -1,0 +1,7 @@
+{
+  "name": "AgilClient",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding background">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" offset="4">
+        <img src="../../assets/img/regavatar.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input type="text" class="form-control" name="prenom" [(ngModel)]="form.prenom" required minlength="3" maxlength="20" #prenom="ngModel"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ng-container class="danger" *ngIf="prenom.errors && f.submitted">
+      <div *ngIf="prenom.errors.required">First Name is required</div>
+      <div *ngIf="prenom.errors.minlength"> First Name must be at least 3 characters </div>
+      <div *ngIf="prenom.errors.maxlength">First Name must be at most 20 characters</div>
+    </ng-container>
+
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" class="form-control" name="nom" [(ngModel)]="form.nom" required minlength="3" maxlength="20" #nom="ngModel"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ng-container class="danger" *ngIf="nom.errors && f.submitted">
+      <div *ngIf="nom.errors.required">Last Name is required</div>
+      <div *ngIf="nom.errors.minlength"> Last Name must be at least 3 characters </div>
+      <div *ngIf="nom.errors.maxlength">Last Name must be at most 20 characters</div>
+    </ng-container>
+
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input type="text" class="form-control" name="numTel" [(ngModel)]="form.numTel" required minlength="8" maxlength="13" #numTel="ngModel"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ng-container class="danger" *ngIf="numTel.errors && f.submitted">
+      <div *ngIf="numTel.errors.required">Phone Number is required</div>
+      <div *ngIf="numTel.errors.minlength">Phone Number must be at least 8 characters</div>
+      <div *ngIf="numTel.errors.maxlength">Phone Number must be at most 13 characters</div>
+    </ng-container>
+
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <!-- <ion-label position="floating">Date of Birth</ion-label> -->
+        <ion-input type="date" class="form-control" name="dateNaissance" [(ngModel)]="form.dateNaissance" required #dateNaissance="ngModel"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ng-container class="danger" *ngIf="dateNaissance.errors && f.submitted">
+      <div *ngIf="dateNaissance.errors.required">Date of Birth is required</div>
+    </ng-container>
+
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input type="text" class="form-control" name="address" [(ngModel)]="form.address" required minlength="3" maxlength="20" #address="ngModel"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ng-container class="danger" *ngIf="address.errors && f.submitted">
+      <div *ngIf="address.errors.required">Address is required</div>
+      <div *ngIf="address.errors.minlength">Address must be at least 3 characters</div>
+      <div *ngIf="address.errors.maxlength">Address must be at most 20 characters</div>
+    </ng-container>
+
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ng-container class="danger" *ngIf="email.errors && f.submitted">
+      <div *ngIf="email.errors.required">Email is required</div>
+      <div *ngIf="email.errors.email">Email must be a valid email address</div>
+    </ng-container>
+
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel"></ion-input>
+      </ion-item>
+    </div>
+    
+    <ng-container class="danger" *ngIf="username.errors && f.submitted">
+      <div *ngIf="username.errors.required">Username is required</div>
+      <div *ngIf="username.errors.minlength">Username must be at least 3 characters</div>
+      <div *ngIf="username.errors.maxlength">Username must be at most 20 characters</div>>
+    </ng-container>
+
+    <div class="ion-margin-vertical">
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel"></ion-input>
+      </ion-item> 
+    </div>
+    
+    <ng-container class="danger" *ngIf="password.errors && f.submitted">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+    </ng-container>
+
+    <ion-button type="submit" expand="block" color="warning">Register</ion-button>
+    
+    
+      <ion-label color="danger" class="ion-text-center" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </ion-label>
+  
+    
+      <ion-label color="success" class="ion-text-center" *ngIf="isSuccessful">
+        Your registration is successful!
+      </ion-label>
+   
+  </form>
+  <p class="ion-text-center">Already registered? <a (click)="goToLogin()">Login</a></p>
+</ion-content>

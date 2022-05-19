@@ -1,0 +1,172 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Account</ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div class="image">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" offset="4">
+              <img src="../../assets/img/client.png"/>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <ion-card-title>
+        <h4 class="title" style="text-align:center"><strong style="text-transform:uppercase">{{ currentUser.username }}</strong> Profile<br /> <br /> </h4>
+      </ion-card-title>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+    <h3><h2><strong>First Name:</strong></h2>{{ currentUser.prenom }}</h3> <br>
+
+    <h3><h2><strong>Last Name:</strong></h2>{{ currentUser.nom }}</h3> <br>
+
+    <h3><h2><strong>Date of Birth:</strong></h2>{{ currentUser.dateNaissance }}</h3> <br>
+
+    <h3><h2><strong>Phone Number:</strong></h2>{{ currentUser.numTel }}</h3> <br>
+
+    <h3><h2><strong>Address:</strong></h2>{{ currentUser.address }}</h3> <br>
+
+    <h3><h2><strong>Username:</strong></h2>{{ currentUser.username }}</h3> <br>
+
+    <h3><h2><strong>Email:</strong></h2>{{ currentUser.email }}</h3> <br>
+
+    <h3><h2><strong>Password:</strong></h2>{{ currentUser.password.substring(0, 10) }}...{{ currentUser.password.substring(currentUser.password.length- 10) }}</h3> 
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <h4 class="title" style="text-align:center"> Update Profile </h4>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input formControlName="prenom" id="prenom" type="text" [(ngModel)]="currentUser.prenom" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.prenom.touched && f.prenom.invalid" class="alert alert-danger">
+            <div *ngIf="f.prenom.errors.required">First Name is required.</div>
+        </div>
+        </ng-container>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input formControlName="nom" id="nom" type="text" [(ngModel)]="currentUser.nom" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.nom.touched && f.nom.invalid" class="alert alert-danger">
+            <div *ngIf="f.nom.errors.required">Last Name is required.</div>
+        </div>
+        </ng-container>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">Phone Number</ion-label>
+            <ion-input formControlName="numTel" id="numTel" type="text" [(ngModel)]="currentUser.numTel" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.numTel.touched && f.numTel.invalid" class="alert alert-danger">
+            <div *ngIf="f.numTel.errors.required">Phone Number is required.</div>
+        </div>
+        </ng-container>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">Date if Birth</ion-label>
+            <ion-input formControlName="dateNaissance" id="dateNaissance" type="text" [(ngModel)]="currentUser.dateNaissance" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.dateNaissance.touched && f.dateNaissance.invalid" class="alert alert-danger">
+            <div *ngIf="f.dateNaissance.errors.required">Date if Birth is required.</div>
+        </div>
+        </ng-container>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">Address</ion-label>
+            <ion-input formControlName="address" id="address" type="text" [(ngModel)]="currentUser.address" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.address.touched && f.address.invalid" class="alert alert-danger">
+            <div *ngIf="f.address.errors.required">Address is required.</div>
+        </div>
+        </ng-container>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input formControlName="username" id="username" type="text" [(ngModel)]="currentUser.username" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.username.touched && f.username.invalid" class="alert alert-danger">
+            <div *ngIf="f.username.errors.required">Username is required.</div>
+        </div>
+        </ng-container>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email" id="email" type="text" [(ngModel)]="currentUser.email" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+            <div *ngIf="f.email.errors.required">Email is required.</div>
+        </div>
+        </ng-container>
+
+        <div class="ion-margin-vertical">
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input formControlName="password" id="password" type="text" [(ngModel)]="currentUser.password" class="form-control">
+            </ion-input>
+          </ion-item>
+        </div>
+        <ng-container>
+          <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+            <div *ngIf="f.password.errors.required">Password is required.</div>
+        </div>
+        </ng-container>
+
+        <ion-button type="submit" expand="block" color="secondary" [disabled]="!form.valid"><ion-icon name="checkmark-circle-outline" slot="end"></ion-icon>Update</ion-button>
+        <div class="clearfix"></div>
+    </form>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

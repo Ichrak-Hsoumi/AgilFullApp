@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Settings
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>
+        {{activation}} Dark Theme 
+      </ion-label>
+      <ion-toggle slot="end" (ionChange)="onToggleColorTheme($event)" color="dark"></ion-toggle>
+      <!-- <ion-toggle slot="end" (ionChange)="onToggleColorTheme($event)" [checked]="check" color="dark"></ion-toggle> -->
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Select Langage</ion-label>
+      <ion-select value="eng" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="eng">English</ion-select-option>
+        <ion-select-option value="fr">Frensh</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- <ion-item>
+      <div class="grid">
+        <div class="grid-item">
+          <ion-label>Calendar</ion-label>
+          <ion-datetime></ion-datetime>
+        </div>
+      </div>
+    </ion-item> -->
+  
+  </ion-list>
+
+</ion-content>
