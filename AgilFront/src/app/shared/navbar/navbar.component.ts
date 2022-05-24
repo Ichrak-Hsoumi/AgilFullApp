@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../../sidebar/sidebar.component';
+import { ROUTES, ROUTESAgent } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { TokenStorageService } from '../../_services/token-storage.service';
 
@@ -10,6 +10,7 @@ import { TokenStorageService } from '../../_services/token-storage.service';
 })
 
 export class NavbarComponent implements OnInit{
+    currentUser: any;
     private listTitles: any[];
     location: Location;
     private toggleButton: any;
@@ -21,7 +22,13 @@ export class NavbarComponent implements OnInit{
     }
 
     ngOnInit(){
-      this.listTitles = ROUTES.filter(listTitle => listTitle);
+        this.currentUser = this.tokenStorageService.getUser();
+        if (this.currentUser.username!='admin') {
+            this.listTitles = ROUTESAgent.filter(listTitle => listTitle);
+        } else {
+            this.listTitles = ROUTES.filter(listTitle => listTitle);
+        }
+      
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
     }
@@ -62,7 +69,7 @@ export class NavbarComponent implements OnInit{
               return this.listTitles[item].title;
           }
       }
-      return 'Dashboard';
+      /* return 'Dashboard'; */
     }
     logout(): void {
         this.tokenStorageService.signOut();

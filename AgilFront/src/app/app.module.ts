@@ -35,6 +35,7 @@ import { AddGuichetComponent } from './icons/add-guichet/add-guichet.component';
 import { EditGuichetComponent } from './icons/edit-guichet/edit-guichet.component';
 import { ViewGuichetComponent } from './icons/view-guichet/view-guichet.component';
 import { ListGuichetComponent } from './icons/list-guichet/list-guichet.component';
+import { QueueComponent } from './queue/queue.component';
 
 @NgModule({
   imports: [
@@ -71,7 +72,8 @@ import { ListGuichetComponent } from './icons/list-guichet/list-guichet.componen
     AddGuichetComponent,
     EditGuichetComponent,
     ViewGuichetComponent,
-    ListGuichetComponent
+    ListGuichetComponent,
+    QueueComponent
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

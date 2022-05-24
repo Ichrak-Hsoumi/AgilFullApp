@@ -1,0 +1,12 @@
+.number {
+    color: gold;
+}
+
+.button {
+    width: 200px;
+    height: 200px;
+    padding: 2%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: bottom;
+}

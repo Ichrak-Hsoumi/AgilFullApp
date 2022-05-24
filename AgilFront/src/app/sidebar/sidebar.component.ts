@@ -15,13 +15,13 @@ export const ROUTES: RouteInfo[] = [
     { path: '/services', title: 'Services',  icon:'pe-7s-display1', class: '' },
     { path: '/guichets', title: 'Ticket Window',  icon:'pe-7s-way', class: '' },
     { path: '/notifications', title: 'FeedBacks',  icon:'pe-7s-comment', class: '' },
-    { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
+    /* { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' }, */
 ];
 
 export const ROUTESAgent: RouteInfo[] = [
   { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
+  { path: '/queue', title: 'Queue',  icon:'pe-7s-more', class: '' },
   { path: '/notifications', title: 'FeedBacks',  icon:'pe-7s-comment', class: '' },
-  { path: '/notifications', title: 'Queue',  icon:'pe-7s-more', class: '' },
 ];
 
 @Component({

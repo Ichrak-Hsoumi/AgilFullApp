@@ -44,7 +44,7 @@ export class DetailsServicePage implements OnInit {
       var nowH = now.getHours();
       
 
-      if ((nowH < 8)||(nowH > 17)){
+      if ((nowH < 7)||(nowH > 16)){
         const alert = await this.alertController.create({
           cssClass: 'my-custom-class',
           header: 'Warning!',
@@ -61,7 +61,7 @@ export class DetailsServicePage implements OnInit {
           header: 'Are you sure?',
           cssClass: 'my-custom-class',
           buttons: [{
-            text: 'Get Ticket',
+            text: 'Yes Get Ticket',
             icon: 'ticket-outline', 
             id: 'ticket',
             handler: () => {

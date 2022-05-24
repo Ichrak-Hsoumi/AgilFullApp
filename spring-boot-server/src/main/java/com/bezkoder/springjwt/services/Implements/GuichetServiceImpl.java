@@ -43,6 +43,7 @@ public class GuichetServiceImpl implements GuichetService {
 
         if(guichet.getService() != null) {
             Services service = serviceRepository.findByNom(guichet.getService().getNom());
+
             guichet1.setService(service);
         }
 
@@ -53,8 +54,8 @@ public class GuichetServiceImpl implements GuichetService {
         }
 
 
-        /*Ecran ecran = ecranRepository.findByName("E1");
-        guichet1.setEcran(ecran);*/
+        Ecran ecran = ecranRepository.findByName("E1");
+        guichet1.setEcran(ecran);
 
 
         guichetRepository.save(guichet1);

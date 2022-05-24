@@ -1,3 +1,4 @@
+import { QueueComponent } from './../../queue/queue.component';
 import { EditGuichetComponent } from './../../icons/edit-guichet/edit-guichet.component';
 import { AddGuichetComponent } from './../../icons/add-guichet/add-guichet.component';
 import { ViewGuichetComponent } from './../../icons/view-guichet/view-guichet.component';
@@ -48,6 +49,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'guichet/:guichetId/view', component: ViewGuichetComponent },
     { path: 'addGuichet', component: AddGuichetComponent },
     { path: 'guichet/:guichetId/edit', component: EditGuichetComponent },
+
+    { path: 'queue', component: QueueComponent },
 
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },

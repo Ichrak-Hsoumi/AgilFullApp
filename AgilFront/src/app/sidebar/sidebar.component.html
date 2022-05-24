@@ -16,6 +16,13 @@
                 <p>{{menuItem.title}}</p>
             </a>
         </li>
+        <li class="separator"></li>
+        <li>
+            <a  [routerLink]="['user']"> 
+               <i class="pe-7s-user" aria-hidden="true"></i>
+                <p>Your Profile</p>
+            </a>
+        </li>
         <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
         <li *ngIf="isMobileMenu()">
             <a href="/maps" [routerLink]="['/maps']">
