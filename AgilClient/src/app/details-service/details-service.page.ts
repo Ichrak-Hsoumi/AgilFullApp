@@ -35,14 +35,25 @@ export class DetailsServicePage implements OnInit {
       })
     }
 
+    /* Current Time */
+    getCurrentTime() {
+      var today = new Date();
+      var hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+      var minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+      var seconds = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
+      return hours + ':' + minutes + ':' + seconds;
+    } 
+
     async presentActionSheet() {
+
+      /* for (let index = 0; index < this.guichets.length; index++) {
+        console.log(this.guichets[index].service.id);
+      } */
+
       var now = new Date();
-      /* var dateOpen = new Date("2022-05-13T08:00:00");
-      var openTime = dateOpen.getHours();
-      console.log("open",openTime); */
 
       var nowH = now.getHours();
-      
+      console.log(this.getCurrentTime());
 
       if ((nowH < 7)||(nowH > 16)){
         const alert = await this.alertController.create({
