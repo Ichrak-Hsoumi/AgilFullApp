@@ -9,9 +9,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <ion-card class="card">
+<!-- TICKET BOOKED -->
+<ion-content *ngIf="ticketClient.length != 0">
+  <ion-card [class]="card" *ngFor="let t of ticketClient">
     <ion-card-header>
       <ion-card-title>
         <h5 class="title" style="text-align:center"> Your Ticket number:</h5>
@@ -19,13 +19,29 @@
     </ion-card-header>
     <ion-card-content>
       <ion-text color="warning">
-        <h1 style="text-align:center">C-012</h1>
+        <h1 style="text-align:center">{{ t.guichet.service.nom | uppercase }}-{{ t.id }}</h1>
       </ion-text> <br>
       <ion-text>
         <h2 style="text-align:center">Expected time for your turn:</h2>
       </ion-text>
       <ion-text color="warning">
-        <h1 style="text-align:center">12:15</h1>
+        <h1 style="text-align:center">{{t.date}}</h1>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<!-- IF THERE IS NO TICKET -->
+<ion-content  *ngIf="ticketClient.length == 0">
+  <ion-card [class]="card">
+    <ion-card-header>
+      <ion-card-title>
+        <h5 class="title" style="text-align:center"> Your have no ticket</h5>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text>
+        <a (click)="goToServices()"><h2 style="text-align:center">Book a Ticket</h2></a>
       </ion-text>
     </ion-card-content>
   </ion-card>

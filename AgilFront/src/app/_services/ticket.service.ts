@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,8 +9,6 @@ const baseUrl = 'http://localhost:8080/api/ticket';
 })
 export class TicketService {
 
-  public uri = 'http://localhost:8080/api/ticket';
-
   constructor(private http: HttpClient) { }
 
   list(): Observable<any> {
@@ -22,8 +19,8 @@ export class TicketService {
     return this.http.post(baseUrl, data);
   }
 
-  truncate(): Observable<any> {
-    return this.http.get(this.uri + "/truncate");
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
   }
 
 }

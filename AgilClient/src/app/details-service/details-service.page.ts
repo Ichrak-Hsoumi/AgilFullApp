@@ -15,6 +15,7 @@ import { GuichetService } from '../services/guichet.service';
 export class DetailsServicePage implements OnInit {
 
   id!: number;
+  idG!: number;
   service: Services = new Services();
   guichets: Guichet[] = [];
 
@@ -33,7 +34,20 @@ export class DetailsServicePage implements OnInit {
       this.guichetService.list().subscribe((data: Guichet[])=>{
         this.guichets = data;
         console.log(this.guichets);
-      })
+      });
+
+      //RabbitMQ
+      /* this.idG = this.route.snapshot.params['guichetId'];
+      
+    this.guichetService.get(this.idG).subscribe((data: Guichet)=>{
+      this.guichet = data;
+      console.log("guichet data", this.guichet);
+    
+    this.ticketService.create(this.guichet).subscribe(res =>{
+      console.log("rabbit mq");
+      
+    })
+    }); */
     }
 
     /* Current Time */
@@ -52,12 +66,14 @@ export class DetailsServicePage implements OnInit {
         console.log("this.service.id",this.service.id); */
         if (this.guichets[index].service.id==this.service.id) {
           console.log("Hello........!");
-          console.log(this.guichets[index].service.id);
-          console.log(this.service.id);
+          console.log("this.guichets[index].id",this.guichets[index].id);
+          console.log("this.guichets[index].service.id",this.guichets[index].service.id);
+          console.log("this.service.id",this.service.id);
           console.log("Current",this.getCurrentTime().toString());
           console.log("Guichet open", this.guichets[index].open.toString());
           console.log("Guichet close", this.guichets[index].close.toString());
           if ((this.getCurrentTime().toString()<(this.guichets[index].open).toString())||(this.getCurrentTime().toString()>(this.guichets[index].close).toString())) {
+          /* if ((this.getCurrentTime().toString()>(this.guichets[index].open).toString())&&(this.getCurrentTime().toString()<(this.guichets[index].close).toString())) { */
             console.log("Error");
             const alert = await this.alertController.create({
               cssClass: 'my-custom-class',
@@ -81,11 +97,8 @@ export class DetailsServicePage implements OnInit {
                 id: 'ticket',
                 handler: () => {
                   console.log('Get Ticket clicked');
-                  this.ticketService.create(null).subscribe(res => {
-                    console.log('Window created successfully!');
-                    this.router.navigateByUrl('ticket');
-               })
-                  
+                  this.router.navigate(['/notif',this.guichets[index].id]);
+
                 }
               },{
                 text: 'Cancel',

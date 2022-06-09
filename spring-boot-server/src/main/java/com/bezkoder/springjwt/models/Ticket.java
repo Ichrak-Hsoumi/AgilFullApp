@@ -1,11 +1,13 @@
 package com.bezkoder.springjwt.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
@@ -17,11 +19,12 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    /*@NotBlank*/
     private int numero;
 
-    @NotBlank
-    private Date date;
+    /*@NotBlank*/
+    @JsonFormat(pattern="HH:mm")
+    private LocalTime date;
 
     @ManyToOne
     @JoinColumn(name = "Id_Guichet")

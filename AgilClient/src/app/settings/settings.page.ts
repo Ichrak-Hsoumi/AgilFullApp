@@ -1,3 +1,5 @@
+import { TicketService } from './../services/ticket.service';
+import { SettiingsService } from './../services/settiings.service';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
@@ -8,12 +10,24 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 export class SettingsPage implements OnInit {
 
   date = new Date();
-  check:any = false; 
-  activation:string = "Activate"; 
-  constructor(private renderer: Renderer2) { }
+  check:any; 
+  activation:string; 
+  constructor(private renderer: Renderer2, private settiingsService: SettiingsService, private ticketService: TicketService) { }
 
   ngOnInit() {
-    
+    /* console.log("values",this.settiingsService.getAll());
+    console.log("last",this.settiingsService.getLast()); */
+    if (this.settiingsService.getLast()==true) {
+      this.check=true;
+      this.activation="Desactivate";
+    } else {
+      this.check=false;
+      this.activation="Activate";
+    }
+
+    /* this.ticketService.truncate().subscribe(res => {
+      console.log('truncate!', res);
+    }); */
   }
 
   onToggleColorTheme(event){
@@ -24,12 +38,14 @@ export class SettingsPage implements OnInit {
       this.check=true;
       event.detail.checked=true;
       this.activation="Desactivate";
+      this.settiingsService.add(event.detail.checked);
     } else {
       /* document.body.setAttribute('color-theme', 'light'); */
       this.renderer.setAttribute(document.body, 'color-theme', 'light');
       this.check=false;
       event.detail.checked=false;
       this.activation="Activate";
+      this.settiingsService.add(event.detail.checked);
     }
   }
 

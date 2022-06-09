@@ -10,6 +10,8 @@ const baseUrl = 'http://localhost:8080/api/agents';
 })
 export class AgentService {
 
+  public uri = 'http://localhost:8080/api/agents';
+
   constructor(private http: HttpClient) {
     
    }
@@ -32,5 +34,9 @@ export class AgentService {
 
   delete(id: number): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
+  }
+
+  currentUser(): Observable<any> {
+    return this.http.get(this.uri + "/current");
   }
 }

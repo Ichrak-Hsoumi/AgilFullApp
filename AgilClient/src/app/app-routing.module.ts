@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
+  {
+    path: 'notif/:guichetId',
+    loadChildren: () => import('./notif/notif.module').then( m => m.NotifPageModule)
+  },
 ];
 
 @NgModule({
