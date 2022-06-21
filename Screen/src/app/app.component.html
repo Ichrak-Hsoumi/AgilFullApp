@@ -1,0 +1,85 @@
+<!-- Navigation -->
+ <!--  <div class="logo" *ngIf="!isLoggedIn">
+    <i> <img style="width:70px ;" src="../assets/images/agil.png"/> <span>AGIL</span></i>
+  </div> -->
+  <!-- Image and text -->
+<div id="master">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="../assets/images/agil.png" class="me-2" height="30" alt="" loading="lazy"/></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><h3 style="color:rgb(255, 191, 0) ;">National Company of Oil Distribution AGIL S.A.</h3></li>
+        </ul>
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="../assets/images/agil.png" class="me-2" height="30" alt="" loading="lazy"/></a>
+        </div>
+      </div>
+    </nav>
+  
+  
+  <!-- Header Starts -->
+  <div class="wrapper">
+
+    <div class="example-card">
+
+      <mat-card id="g" *ngFor="let t of ticketFirst">
+        <mat-card-title-group  id="t">
+          <mat-card-title><h1>Ticket</h1></mat-card-title>
+          <h1>{{ t.guichet.service.nom | uppercase }}-{{t.id}}</h1>
+        </mat-card-title-group>
+        <mat-card-content>
+          <h1>Counter <p class="counter">{{t.guichet.number}}</p> </h1>
+        </mat-card-content>
+      </mat-card>
+
+
+    </div>
+    <div class="example-card2">
+      <mat-card>
+        <mat-card-title-group>
+          <!-- <h3>{{myDate | date:'yyyy-MM-dd hh:mm'}}</h3> -->
+        </mat-card-title-group>
+        <mat-card-content id="c">
+          <h2>Ticket Number</h2>
+          <h4>{{ firstTicket.guichet.service.nom | uppercase }}-{{firstTicket.id}}</h4>
+          <h2>Please Proceed To Counter</h2>
+          <h4>{{firstTicket.guichet.number}}</h4>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  <!-- <div id="container">
+    <div id="main" class="content-section" *ngIf="!isLoggedIn">
+      <div class="content-wrap text-center">
+        <div class="content table-responsive">
+          <div class="table-responsive">
+            <table id="tab" class="table table-light table-bordered" style="text-align:center;">
+                  <thead>
+                      <th>
+                          Ticket Number
+                      </th>
+                      <th>
+                          Window Number
+                      </th>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let t of ticket">
+                          <td>
+                            {{ t.guichet.service.nom | uppercase }}-{{t.id}}
+                          </td>
+                          
+                          <td>
+                              {{t.guichet.number}}
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div> -->
+</div>
