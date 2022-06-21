@@ -24,10 +24,6 @@ export class SettingsPage implements OnInit {
       this.check=false;
       this.activation="Activate";
     }
-
-    /* this.ticketService.truncate().subscribe(res => {
-      console.log('truncate!', res);
-    }); */
   }
 
   onToggleColorTheme(event){

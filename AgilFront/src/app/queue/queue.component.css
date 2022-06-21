@@ -10,3 +10,20 @@
     text-align: center;
     vertical-align: bottom;
 }
+
+#nxt {
+    opacity    : 0.8;
+    background: white;
+    border: 3px solid;
+    border-style: dashed;
+    border-color: goldenrod gold goldenrod gold;
+    border-radius: 12px;
+}
+
+#c{
+    margin-top: 8%;
+}
+
+#c{
+    margin-left: 6%;
+}

@@ -4,67 +4,71 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header"> 
-                        <h2 class="card-title">Update Guichet</h2>
+                        <h2 class="card-title">Update Window</h2>
                         <a href="#" [routerLink]="['/guichets']" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Back</a> 
                     </div>
-                    <div class="content">
-                        <form [formGroup]="form" (ngSubmit)="submit()">
-  
-                            <div class="form-group">
-                                <label for="number">Window Number:</label>
-                                <input 
-                                    formControlName="number"
-                                    id="number" 
-                                    type="text" 
-                                    [(ngModel)]="guichet.number"
-                                    class="form-control">
-                                <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
-                                    <div *ngIf="f.number.errors.required">Number is required.</div>
-                                </div>
-                            </div> 
-                             
-                            <div class="form-group">
-                                <label for="open">Openning Time</label>
-                                <input 
-                                    formControlName="open"
-                                    id="open" 
-                                    type="time" 
-                                    [(ngModel)]="guichet.open"
-                                    class="form-control">
-                                <div *ngIf="f.open.touched && f.open.invalid" class="alert alert-danger">
-                                    <div *ngIf="f.open.errors.required">Openning Time is required.</div>
-                                </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="content col-md-6">
+                                <form [formGroup]="form" (ngSubmit)="submit()">
+          
+                                    <div class="form-group">
+                                        <label for="number">Window Number:</label>
+                                        <input 
+                                            formControlName="number"
+                                            id="number" 
+                                            type="text" 
+                                            [(ngModel)]="guichet.number"
+                                            class="form-control">
+                                        <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
+                                            <div *ngIf="f.number.errors.required">Number is required.</div>
+                                        </div>
+                                    </div> 
+                                     
+                                    <div class="form-group">
+                                        <label for="open">Openning Time</label>
+                                        <input 
+                                            formControlName="open"
+                                            id="open" 
+                                            type="time" 
+                                            [(ngModel)]="guichet.open"
+                                            class="form-control">
+                                        <div *ngIf="f.open.touched && f.open.invalid" class="alert alert-danger">
+                                            <div *ngIf="f.open.errors.required">Openning Time is required.</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <label for="close">Closing Time</label>
+                                        <input 
+                                            formControlName="close"
+                                            id="close" 
+                                            type="time" 
+                                            [(ngModel)]="guichet.close"
+                                            class="form-control">
+                                        <div *ngIf="f.close.touched && f.close.invalid" class="alert alert-danger">
+                                            <div *ngIf="f.close.errors.required">Closing Time is required.</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <label for="service">Service:</label>
+                                        <select formControlName="service" id="service" [(ngModel)]="guichet.service.nom" class="form-control">
+                                            <option *ngFor="let s of services" [value]="s.nom">{{ s.nom }}</option>
+                                          </select>
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <label for="agent">Agent:</label>
+                                        <select formControlName="agent" id="agent" [(ngModel)]="guichet.agent.username" class="form-control">
+                                            <option *ngFor="let a of agents" [value]="a.username">{{ a.username }}</option>
+                                          </select>
+                                    </div>
+                                    
+                                    <button class="btn btn-success" type="submit" [disabled]="!form.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
+                                </form>
                             </div>
-
-                            <div class="form-group">
-                                <label for="close">Closing Time</label>
-                                <input 
-                                    formControlName="close"
-                                    id="close" 
-                                    type="time" 
-                                    [(ngModel)]="guichet.close"
-                                    class="form-control">
-                                <div *ngIf="f.close.touched && f.close.invalid" class="alert alert-danger">
-                                    <div *ngIf="f.close.errors.required">Closing Time is required.</div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="service">Service:</label>
-                                <select formControlName="service" id="service" [(ngModel)]="guichet.service.nom" class="form-control">
-                                    <option *ngFor="let s of services" [value]="s.nom">{{ s.nom }}</option>
-                                  </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="agent">Agent:</label>
-                                <select formControlName="agent" id="agent" [(ngModel)]="guichet.agent.username" class="form-control">
-                                    <option *ngFor="let a of agents" [value]="a.username">{{ a.username }}</option>
-                                  </select>
-                            </div>
-                            
-                            <button class="btn btn-success" type="submit" [disabled]="!form.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

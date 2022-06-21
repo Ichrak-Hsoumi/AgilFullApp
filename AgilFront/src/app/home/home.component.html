@@ -1,6 +1,6 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" *ngIf="currentUser.username=='admin'">
             <div class="col-md-6">
                 <lbd-chart
                   [title]="'Services Statistics'"
@@ -28,6 +28,46 @@
                   [footerText]="'Data information certified'">
                 </lbd-chart>
             </div>
+        </div>
+        <div *ngIf="currentUser.username!='admin'">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-counter info">
+                          <i class="fa fa-users"></i>
+                          <span class="count-numbers">{{total}}</span>
+                          <span class="count-name">Total Clients</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                <div class="col-md-6">
+                  <div class="card-counter warning">
+                    <i class="fa fa-clock-o"></i>
+                    <span class="count-numbers">{{waiting}}</span>
+                    <span class="count-name">Waiting Clients</span>
+                  </div>
+                </div>
+            
+                <div class="col-md-6">
+                  <div class="card-counter success">
+                    <i class="fa fa-check-circle-o"></i>
+                    <span class="count-numbers">{{passed}}</span>
+                    <span class="count-name">Passed Clients</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         </div>
     </div>
 </div>

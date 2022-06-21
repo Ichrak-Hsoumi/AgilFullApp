@@ -8,15 +8,17 @@
                     
                     <!-- IF THERE IS CLIENTS -->
                     <div class="content" *ngIf="ticketGuichet.length != 0">
-                        <div class="row">
-                            <div class="col-md-4 txt">
-                                <h4>Current Client :</h4>
-                            </div>
-                            <div class="col-md-4 number">
-                                <h4><b>{{firstTicket.id}}</b></h4>
-                            </div>
-                            <div class="col-md-4 button">
-                                <button class="btn btn-primary" type="submit" (click)="getNext(firstTicket.id)">Next <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+                        <div>
+                            <div id="nxt" class="row">
+                                <div id="c" class="col-md-4 txt">
+                                    <h2 id="c2">Current Client :</h2>
+                                </div>
+                                <div id="c" class="col-md-3 number">
+                                    <h2><b>{{ firstTicket.guichet.service.nom | uppercase }}-{{firstTicket.id}}</b></h2>
+                                </div>
+                                <div id="c" class="col-md-3 button">
+                                    <button class="btn btn-primary btn-lg" type="submit" (click)="getNext(firstTicket.id)">Next <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>

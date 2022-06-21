@@ -32,7 +32,7 @@ public class TicketServiceImpl implements TicketService {
     public Ticket yesGetTicket(Guichet guichet) {
         Ticket ticket = new Ticket();
         ticket.setClient(userService.currentUser());
-        ticket.setDate(LocalTime.now());
+        /*ticket.setDate(LocalTime.now());*/
         ticket.setGuichet(guichet);
         ticket.setNumero(2);
        Ticket Ticket2 = ticketRepository.save(ticket);

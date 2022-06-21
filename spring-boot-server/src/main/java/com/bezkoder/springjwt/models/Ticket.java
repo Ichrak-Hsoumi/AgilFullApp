@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -23,8 +24,9 @@ public class Ticket {
     private int numero;
 
     /*@NotBlank*/
-    @JsonFormat(pattern="HH:mm")
-    private LocalTime date;
+    /*@JsonFormat(pattern="HH:mm")*/
+    @CreationTimestamp
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "Id_Guichet")

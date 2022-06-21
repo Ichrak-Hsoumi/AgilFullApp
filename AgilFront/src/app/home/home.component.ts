@@ -1,8 +1,10 @@
+import { DashboardAgService } from './../_services/dashboard-ag.service';
 import { AgentService } from 'app/_services/agent.service';
 import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { TokenStorageService } from 'app/_services/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -25,13 +27,28 @@ export class HomeComponent implements OnInit {
     public activityChartOptions: any;
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
-  constructor(public agentservice: AgentService) { }
+
+    currentUser: any;
+    passed:any;
+    waiting:any;
+    total:any;
+
+  constructor(public agentservice: AgentService, public dashboardAgService: DashboardAgService, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
     this.agentservice.currentUser().subscribe(res => {
       console.log('Current U ser!', res);
       /* this.router.navigateByUrl('user'); */
- })
+    });
+    this.currentUser = this.tokenStorageService.getUser();
+
+    console.log("passed : ", this.dashboardAgService.passed);
+    console.log("waiting : ", this.dashboardAgService.waiting);
+    console.log("total : ", this.dashboardAgService.getTotal());
+    this.passed = this.dashboardAgService.passed;
+    this.waiting = this.dashboardAgService.waiting;
+    this.total = this.dashboardAgService.getTotal();
+    
     
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
@@ -39,9 +56,9 @@ export class HomeComponent implements OnInit {
         series: [52, 32, 16]
       };
       this.emailChartLegendItems = [
-        { title: 'Service 1', imageClass: 'fa fa-circle text-info' },
-        { title: 'Service 2', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Service 3', imageClass: 'fa fa-circle text-warning' }
+        { title: 'Buy Vocher', imageClass: 'fa fa-circle text-info' },
+        { title: 'Charge card', imageClass: 'fa fa-circle text-danger' },
+        { title: 'Test', imageClass: 'fa fa-circle text-warning' }
       ];
 
      
@@ -73,9 +90,9 @@ export class HomeComponent implements OnInit {
         }]
       ];
       this.activityChartLegendItems = [
-        { title: 'Service 1', imageClass: 'fa fa-circle text-info' },
-        { title: 'Service 2', imageClass: 'fa fa-circle text-danger' },
-        { title: 'Service 3', imageClass: 'fa fa-circle text-warning' }
+        { title: 'Buy Vocher', imageClass: 'fa fa-circle text-info' },
+        { title: 'Charge card', imageClass: 'fa fa-circle text-danger' },
+        { title: 'Test', imageClass: 'fa fa-circle text-warning' }
       ];
 
 

@@ -30,9 +30,10 @@ public class TicketController {
         ticketService.delete(id);
     }
 
-    /*@GetMapping(path="/truncate")
-    @Scheduled(cron = "55 1 * * *")
+    @GetMapping(path="/truncate")
+    @Scheduled(cron = "0 0 20 * * ?")
     public void deletAll(){
+        System.out.println("\n \n Truncate table ticket");
         ticketService.truncateMyTable();
-    }*/
+    }
 }

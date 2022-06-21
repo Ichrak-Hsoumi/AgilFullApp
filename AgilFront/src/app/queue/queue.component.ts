@@ -1,3 +1,4 @@
+import { DashboardAgService } from './../_services/dashboard-ag.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from 'app/model/ticketModel';
@@ -15,7 +16,8 @@ export class QueueComponent implements OnInit {
   ticketGuichet = new Array();
   firstTicket:Ticket;
 
-  constructor(private router: Router, public ticketService: TicketService, private tokenStorageService: TokenStorageService) { }
+  constructor(private router: Router, public ticketService: TicketService, private tokenStorageService: TokenStorageService,
+    private dashboardAgService:DashboardAgService) { }
 
   ngOnInit(): void {
 
@@ -31,10 +33,18 @@ export class QueueComponent implements OnInit {
           this.ticketGuichet.push(this.ticket[index]);
         }
       }
+      this.dashboardAgService.waiting=this.ticketGuichet.length;
       console.log("ticketGuichet", this.ticketGuichet);
+
+      //First letter of each service
+      for (let j = 0; j < this.ticketGuichet.length; j++) {
+        this.ticketGuichet[j].guichet.service.nom = this.ticketGuichet[j].guichet.service.nom.slice(0,1);
+      }
       
       //return the first Ticket
       this.firstTicket = this.ticketGuichet[0];
+
+      
     });
   }
 
@@ -45,8 +55,9 @@ export class QueueComponent implements OnInit {
     } */
     this.firstTicket = this.ticketGuichet[0+1];
     this.ticketService.delete(id).subscribe(res => {
-    this.ticketGuichet = this.ticketGuichet.filter(item => item.id !== id);
+      this.ticketGuichet = this.ticketGuichet.filter(item => item.id !== id);
     })
+    this.dashboardAgService.passed++;
   }
 
 }
